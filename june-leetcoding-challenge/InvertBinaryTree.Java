@@ -39,4 +39,20 @@ class Solution {
     }
 }
 
-// TODO: Solve this with recursion 
+// Solve this with recursion 
+
+class Solution {
+    public TreeNode invertTree(TreeNode root) {
+        Mirror(root);
+        return root;
+    }
+    public void Mirror(TreeNode node) {
+		if(node==null) return;
+		Mirror(node.left);
+		Mirror(node.right);
+		//Swap 
+		TreeNode temp = node.left;
+		node.left=node.right;
+		node.right=temp;
+	}
+}
